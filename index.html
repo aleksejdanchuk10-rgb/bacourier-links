@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BACOURIER | Links</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial Black', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+
+.design {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.design::before {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: url('ghggg.png') center/cover no-repeat;
+  filter: brightness(0.5);
+  z-index: 0;
+}
+
+.shimmer {
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.08), transparent 35%),
+              radial-gradient(circle at 70% 70%, rgba(255,0,255,0.08), transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(255,255,0,0.06), transparent 45%);
+  animation: shimmerMove 25s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes shimmerMove {
+  0% { transform: translate(-100%, -100%) rotate(0deg); }
+  50% { transform: translate(100%, 100%) rotate(180deg); }
+  100% { transform: translate(-100%, -100%) rotate(360deg); }
+}
+
+.box {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #00ffff, #00aaff, #0055ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(0,255,255,0.6), 0 0 20px rgba(0,170,255,0.5);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(0,255,255,0.5), 0 0 15px rgba(0,170,255,0.3); }
+  50% { text-shadow: 0 0 12px rgba(0,255,255,0.7), 0 0 25px rgba(0,200,255,0.5); }
+  100% { text-shadow: 0 0 8px rgba(0,255,255,0.6), 0 0 20px rgba(0,170,255,0.5); }
+}
+
+p {
+  color: #fff;
+  opacity: 0.85;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Кнопки */
+.btn {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn:hover { transform: scale(1.05); }
+
+.tiktok { background: #000; }
+.telegram { background: #229ED9; }
+.instagram { background: linear-gradient(45deg, #f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.erenta { background: linear-gradient(90deg, #FF6A00,#FF8C42,#FFA85C); font-weight: 600; }
+
+/* Кнопка Open in Browser */
+.open-browser {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #111;
+  background: #00ffff;
+}
+
+.footer-text {
+  color: #fff;
+  font-size: 0.8rem;
+  margin-top: 15px;
+  opacity: 0.7;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="design">
+  <div class="shimmer"></div>
+
+  <div class="box">
+    <h1>BACOURIER</h1>
+    <p>Все мои соцсети</p>
+
+    <a class="btn tiktok" href="https://www.tiktok.com/@bacourier?_r=1" target="_blank">TikTok</a>
+    <a class="btn telegram" href="https://t.me/bacourier" target="_blank">Telegram</a>
+    <a class="btn erenta" href="https://erenta.eu" target="_blank">АРЕНДА + КУРЬЕР</a>
+    <a class="btn telegram" href="https://t.me/Korak636184" target="_blank">Сотрудничество</a>
+    <a class="btn instagram" href="https://www.instagram.com/bacourier_?igsh=MTNqZTZlbG9lYWMwcw==" target="_blank">Instagram</a>
+
+    <!-- Кнопка Open in Browser -->
+    <a class="open-browser" href="#" id="openBrowserBtn">Открыть в браузере</a>
+
+    <div class="footer-text">BACOURIER — рад видеть тебя в новых соцсетях! 🚀</div>
+  </div>
+</div>
+
+<script>
+// Попытка открыть внешним браузером
+document.getElementById('openBrowserBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.open(window.location.href, '_blank'); // откроется в внешнем браузере
+});
+</script>
+
+</body>
+</html>
