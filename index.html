@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BACOURIER | Links</title>
+
 <style>
 body {
   margin: 0;
@@ -18,7 +19,7 @@ body {
 .design {
   position: relative;
   width: 360px;
-  height: 640px;
+  height: 700px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
@@ -27,8 +28,7 @@ body {
 .design::before {
   content: '';
   position: absolute;
-  top:0; left:0;
-  width:100%; height:100%;
+  inset: 0;
   background: url('ghggg.png') center/cover no-repeat;
   filter: brightness(0.5);
   z-index: 0;
@@ -36,12 +36,14 @@ body {
 
 .shimmer {
   position: absolute;
-  top: -50%; left: -50%;
+  top: -50%;
+  left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.08), transparent 35%),
-              radial-gradient(circle at 70% 70%, rgba(255,0,255,0.08), transparent 40%),
-              radial-gradient(circle at 50% 50%, rgba(255,255,0,0.06), transparent 45%);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0,255,255,0.08), transparent 35%),
+    radial-gradient(circle at 70% 70%, rgba(255,0,255,0.08), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,0,0.06), transparent 45%);
   animation: shimmerMove 25s ease-in-out infinite;
   z-index: 0;
   pointer-events: none;
@@ -55,7 +57,7 @@ body {
 
 .box {
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
@@ -67,31 +69,22 @@ body {
 
 h1 {
   font-size: 2.2rem;
-  background: linear-gradient(135deg, #00ffff, #00aaff, #0055ff, #00ffff);
+  background: linear-gradient(135deg, #00ffff, #00aaff, #0055ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 8px rgba(0,255,255,0.6), 0 0 20px rgba(0,170,255,0.5);
-  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(0,255,255,0.7);
   margin-bottom: 8px;
-  animation: glow 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  0% { text-shadow: 0 0 5px rgba(0,255,255,0.5), 0 0 15px rgba(0,170,255,0.3); }
-  50% { text-shadow: 0 0 12px rgba(0,255,255,0.7), 0 0 25px rgba(0,200,255,0.5); }
-  100% { text-shadow: 0 0 8px rgba(0,255,255,0.6), 0 0 20px rgba(0,170,255,0.5); }
 }
 
 p {
   color: #fff;
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-size: 1rem;
   text-transform: uppercase;
   text-align: center;
 }
 
-/* Кнопки */
 .btn {
   width: 90%;
   padding: 10px;
@@ -109,32 +102,84 @@ p {
 
 .tiktok { background: #000; }
 .telegram { background: #229ED9; }
-.instagram { background: linear-gradient(45deg, #f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
-.erenta { background: linear-gradient(90deg, #FF6A00,#FF8C42,#FFA85C); font-weight: 600; }
+.instagram {
+  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}
+.erenta {
+  background: linear-gradient(90deg,#FF6A00,#FF8C42,#FFA85C);
+}
 
-/* Кнопка Open in Browser */
-.open-browser {
-  width: 90%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
+/* ===== Донат ===== */
+.donate {
+  width: 100%;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.2);
   text-align: center;
-  font-size: 0.9rem;
-  color: #111;
-  background: #00ffff;
+}
+
+.donate-title {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: #00ffff;
+}
+
+.donate-box {
+  background: rgba(0,0,0,0.45);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  color: #fff;
+  word-break: break-all;
 }
 
 .footer-text {
   color: #fff;
-  font-size: 0.8rem;
-  margin-top: 15px;
+  font-size: 0.75rem;
+  margin-top: 8px;
   opacity: 0.7;
   text-align: center;
 }
+
+/* TikTok Overlay */
+.tiktok-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+}
+
+.tiktok-overlay .arrow {
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  font-size: 3rem;
+  animation: arrowMove 1.5s infinite;
+}
+
+@keyframes arrowMove {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-12px); opacity: 0.6; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.tiktok-overlay .text {
+  font-size: 1.2rem;
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
 </style>
 </head>
+
 <body>
 
 <div class="design">
@@ -146,22 +191,58 @@ p {
 
     <a class="btn tiktok" href="https://www.tiktok.com/@bacourier?_r=1" target="_blank">TikTok</a>
     <a class="btn telegram" href="https://t.me/bacourier" target="_blank">Telegram</a>
-    <a class="btn erenta" href="https://erenta.eu" target="_blank">АРЕНДА + КУРЬЕР</a>
+
+    <a class="btn erenta" href="https://erenta.eu/?ref=c23cff0a" target="_blank">
+      АРЕНДА + КУРЬЕР
+    </a>
+
     <a class="btn telegram" href="https://t.me/Korak636184" target="_blank">Сотрудничество</a>
     <a class="btn instagram" href="https://www.instagram.com/bacourier_?igsh=MTNqZTZlbG9lYWMwcw==" target="_blank">Instagram</a>
 
-    <!-- Кнопка Open in Browser -->
-    <a class="open-browser" href="#" id="openBrowserBtn">Открыть в браузере</a>
+    <!-- Донат -->
+    <div class="donate">
+      <div class="donate-title">🍺 Донатик на PIVKO</div>
 
-    <div class="footer-text">BACOURIER — рад видеть тебя в новых соцсетях! 🚀</div>
+      <div class="donate-box">
+        <b>TRX (TRC20)</b><br>
+        TV1WzkvNUi2McdXh9XpQUYLiG4UKcgaBza
+      </div>
+
+      <div class="donate-box">
+        <b>Monobank</b><br>
+        4874 1000 2403 0143
+      </div>
+    </div>
+
+    <div class="footer-text">Спасибо за поддержку ❤️</div>
+  </div>
+</div>
+
+<!-- TikTok overlay -->
+<div class="tiktok-overlay" id="tiktokOverlay">
+  <div class="arrow">↑</div>
+  <div class="text">
+    Нажми на <b>⋮</b> вверху экрана<br>
+    и выбери<br>
+    <b>«Открыть в браузере»</b>
   </div>
 </div>
 
 <script>
-// Попытка открыть внешним браузером
-document.getElementById('openBrowserBtn').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.open(window.location.href, '_blank'); // откроется в внешнем браузере
+function isTikTokBrowser() {
+  return navigator.userAgent.toLowerCase().includes("tiktok");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (isTikTokBrowser()) {
+    setTimeout(() => {
+      document.getElementById("tiktokOverlay").style.display = "flex";
+    }, 1500);
+  }
+});
+
+document.getElementById("tiktokOverlay").addEventListener("click", () => {
+  document.getElementById("tiktokOverlay").style.display = "none";
 });
 </script>
 
